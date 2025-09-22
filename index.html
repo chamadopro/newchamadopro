@@ -33,6 +33,19 @@
       </div>
     </header>
 
+    <!-- Mobile drawer + overlay -->
+    <div id="mobile-overlay" class="mobile-overlay" style="display:none"></div>
+    <nav id="mobile-nav" class="mobile-drawer" style="display:none">
+        <button class="drawer-close" onclick="window.app && window.app.toggleMobileMenu()">×</button>
+        <a href="#" onclick="navigateToSearch('standard')">Buscar Serviços</a>
+        <a href="#" onclick="navigateToSearch('emergency')">Serviços 24Hrs</a>
+        <a href="#" onclick="navigateToSearch('enterprise')">Grandes Serviços</a>
+        <hr>
+        <button id="drawer-login" class="btn btn-outline">Entrar</button>
+        <button id="drawer-register-client" class="btn btn-primary">Cadastro Cliente</button>
+        <button id="drawer-register-provider" class="btn btn-outline">Cadastro Prestador</button>
+    </nav>
+
     <!-- Mobile Nav Drawer -->
     <div id="mobile-nav" class="mobile-nav" style="display:none;">
         <button class="btn btn-outline" onclick="navigateToSearch('standard')">Buscar Serviços</button>
@@ -42,14 +55,17 @@
         <button class="btn" onclick="showLoginForm('client')">Entrar</button>
         <button class="btn btn-primary" onclick="selectRegisterUserType('client'); showRegisterForm();">Cadastro Cliente</button>
         <button class="btn btn-outline" onclick="selectRegisterUserType('provider'); showRegisterForm();">Cadastro Prestador</button>
-    </div>
+      </div>
 
     <!-- Main Content -->
     <main class="main-content">
         
         <!-- Landing Page Section -->
         <section id="landing-page" class="section active">
-            <div class="landing-hero"></div>
+            <div class="landing-hero">
+                <h2>Bem-vindo ao ChamadoPro</h2>
+                <p>Conectando clientes e prestadores de forma inteligente</p>
+        </div>
 
             <div class="service-cards">
                 <div class="service-card emergency" onclick="navigateToSearch('emergency')">
@@ -57,8 +73,8 @@
             <h3>Serviços 24Hrs</h3>
                     <p>Emergências que não podem esperar</p>
                     <span class="card-badge">URGENTE</span>
-          </div>
-                
+        </div>
+        
                 <div class="service-card standard" onclick="navigateToSearch('standard')">
                     <div class="card-icon">🔍</div>
             <h3>Buscar Serviços</h3>
@@ -72,7 +88,41 @@
                     <p>Projetos empresariais e residenciais</p>
                     <span class="card-badge">PREMIUM</span>
           </div>
+        </div>
+        
+            <!-- Desktop-only Marketing Strip -->
+            <div class="marketing-strip" aria-hidden="true">
+                <div class="marketing-track">
+                    <div class="marketing-card">
+                        <span class="mk-icon">⭐</span>
+                        <div class="mk-text">
+                            <strong>Profissionais verificados</strong>
+                            <small>Confiança e segurança em cada atendimento</small>
           </div>
+          </div>
+                    <div class="marketing-card">
+                        <span class="mk-icon">💳</span>
+                        <div class="mk-text">
+                            <strong>Pagamento seguro</strong>
+                            <small>Proteção de ponta a ponta para você</small>
+        </div>
+      </div>
+                    <div class="marketing-card">
+                        <span class="mk-icon">⚡</span>
+                        <div class="mk-text">
+                            <strong>Atendimento 24h</strong>
+                            <small>Emergências não podem esperar</small>
+          </div>
+        </div>
+                    <div class="marketing-card">
+                        <span class="mk-icon">🎯</span>
+                        <div class="mk-text">
+                            <strong>Orçamento sob medida</strong>
+                            <small>Standard ou com visita, você escolhe</small>
+        </div>
+      </div>
+          </div>
+        </div>
         </section>
 
         <!-- Search Section -->
@@ -80,7 +130,7 @@
             <div class="search-header">
                 <button id="back-to-landing" class="btn btn-back">← Voltar</button>
                 <h2 id="search-title">Buscar Profissionais</h2>
-        </div>
+      </div>
 
             <div class="search-content">
                 <div class="search-filters">
@@ -115,8 +165,8 @@
                                 <option value="limpeza">Limpeza</option>
                                 <option value="pintor">Pintor</option>
                                 <option value="pedreiro">Pedreiro</option>
-                            </select>
-                        </div>
+              </select>
+          </div>
 
                         <div class="filter-item">
                             <label>Localização:</label>
@@ -193,6 +243,7 @@
         <section id="client-dashboard" class="section">
             <div class="dashboard-header">
                 <h2>Dashboard do Cliente</h2>
+                <button id="sidebar-toggle" class="btn btn-outline">☰ Menu</button>
             </div>
 
             <div class="dashboard-content">
@@ -239,7 +290,8 @@
         <section id="provider-dashboard" class="section">
             <div class="dashboard-header">
                 <h2>Dashboard do Prestador</h2>
-      </div>
+                <button id="sidebar-toggle-provider" class="btn btn-outline">☰ Menu</button>
+            </div>
 
             <div class="dashboard-content">
                 <div class="summary-cards">
@@ -690,7 +742,7 @@
             </div>
             </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 ChamadoPro. Todos os direitos reservados.</p>
+                <p>&copy; 2025 ChamadoPro. Todos os direitos reservados.</p>
             </div>
     </footer>
 

@@ -10,109 +10,48 @@ class ChamadoProApp {
             { id: 'enterprise', name: 'Grandes Serviços', icon: '🏢', description: 'Projetos empresariais e residenciais' }
         ];
         
-        this.professionalsData = [
-            {
-                id: 1,
-                name: 'João Silva',
-                specialty: 'Eletricista',
-                rating: 4.8,
-                location: 'Centro, SP',
-                price: 'R$ 80/hora',
-                priceTypes: ['hour', 'task'],
-                avatar: 'JS',
-                available: true
-            },
-            {
-                id: 2,
-                name: 'Maria Santos',
-                specialty: 'Encanadora',
-                rating: 4.9,
-                location: 'Vila Nova, SP',
-                price: 'R$ 70/hora',
-                priceTypes: ['hour', 'analysis'],
-                avatar: 'MS',
-                available: true
-            },
-            {
-                id: 3,
-                name: 'Pedro Costa',
-                specialty: 'Chaveiro',
-                rating: 4.7,
-                location: 'Jardins, SP',
-                price: 'R$ 50/chamada',
-                priceTypes: ['task'],
-                avatar: 'PC',
-                available: true
-            },
-            {
-                id: 4,
-                name: 'Ana Lima',
-                specialty: 'Limpeza',
-                rating: 4.9,
-                location: 'Copacabana, SP',
-                price: 'R$ 60/hora',
-                priceTypes: ['hour', 'task', 'analysis'],
-                avatar: 'AL',
-                available: true
-            },
-            {
-                id: 5,
-                name: 'Carlos Mendes',
-                specialty: 'Pintor',
-                rating: 4.6,
-                location: 'Tijuca, SP',
-                price: 'R$ 45/m²',
-                priceTypes: ['task', 'analysis'],
-                avatar: 'CM',
-                available: true
-            },
-            {
-                id: 6,
-                name: 'Roberto Alves',
-                specialty: 'Pedreiro',
-                rating: 4.8,
-                location: 'Botafogo, SP',
-                price: 'R$ 90/hora',
-                priceTypes: ['hour', 'task'],
-                avatar: 'RA',
-                available: true
-            },
-            {
-                id: 7,
-                name: 'Fernanda Oliveira',
-                specialty: 'Eletricista',
-                rating: 4.5,
-                location: 'Barra da Tijuca, SP',
-                price: 'Análise da Necessidade',
-                priceTypes: ['analysis'],
-                avatar: 'FO',
-                available: true
-            },
-            {
-                id: 8,
-                name: 'Marcos Pereira',
-                specialty: 'Encanador',
-                rating: 4.7,
-                location: 'Leblon, SP',
-                price: 'Todas as opções',
-                priceTypes: ['hour', 'task', 'analysis'],
-                avatar: 'MP',
-                available: true
-            },
-            {
-                id: 9,
-                name: 'Lucia Ferreira',
-                specialty: 'Pintora',
-                rating: 4.4,
-                location: 'Ipanema, SP',
-                price: 'Não informado',
-                priceTypes: [],
-                avatar: 'LF',
-                available: true
-            }
-        ];
+        // Generate dynamic professionals data
+        this.generateProfessionalsData();
         
         this.init();
+    }
+
+    generateProfessionalsData() {
+        const names = ['João Silva', 'Maria Santos', 'Pedro Costa', 'Ana Lima', 'Carlos Mendes', 'Roberto Alves', 'Fernanda Oliveira', 'Marcos Pereira', 'Lucia Ferreira', 'Rafael Souza', 'Patricia Lima', 'Antonio Santos'];
+        const specialties = ['Eletricista', 'Encanador', 'Chaveiro', 'Limpeza', 'Pintor', 'Pedreiro'];
+        const locations = ['Centro, SP', 'Vila Nova, SP', 'Jardins, SP', 'Copacabana, SP', 'Tijuca, SP', 'Botafogo, SP', 'Barra da Tijuca, SP', 'Leblon, SP', 'Ipanema, SP'];
+        const priceTypes = [['hour'], ['task'], ['analysis'], ['hour', 'task'], ['hour', 'analysis'], ['task', 'analysis'], ['hour', 'task', 'analysis']];
+        
+        this.professionalsData = [];
+        
+        for (let i = 0; i < 12; i++) {
+            const name = names[Math.floor(Math.random() * names.length)];
+            const specialty = specialties[Math.floor(Math.random() * specialties.length)];
+            const location = locations[Math.floor(Math.random() * locations.length)];
+            const rating = 4.0 + Math.random() * 1.0;
+            const priceType = priceTypes[Math.floor(Math.random() * priceTypes.length)];
+            
+            let price = '';
+            if (priceType.includes('hour')) {
+                price = `R$ ${Math.floor(Math.random() * 50) + 50}/hora`;
+            } else if (priceType.includes('task')) {
+                price = `R$ ${Math.floor(Math.random() * 100) + 30}/tarefa`;
+            } else if (priceType.includes('analysis')) {
+                price = 'Análise da Necessidade';
+            }
+            
+            this.professionalsData.push({
+                id: i + 1,
+                name: name,
+                specialty: specialty,
+                rating: Math.round(rating * 10) / 10,
+                location: location,
+                price: price,
+                priceTypes: priceType,
+                avatar: name.split(' ').map(n => n[0]).join(''),
+                available: Math.random() > 0.1
+            });
+        }
     }
 
     showVisitModal(professional) {
@@ -184,6 +123,9 @@ class ChamadoProApp {
         document.getElementById('provider-logout')?.addEventListener('click', () => this.logout());
         document.getElementById('back-to-landing')?.addEventListener('click', () => this.navigateToSection('landing-page'));
         document.getElementById('mobile-menu-btn')?.addEventListener('click', () => this.toggleMobileMenu());
+        document.getElementById('mobile-overlay')?.addEventListener('click', () => this.toggleMobileMenu());
+        document.getElementById('sidebar-toggle')?.addEventListener('click', () => this.toggleSidebar());
+        document.getElementById('sidebar-toggle-provider')?.addEventListener('click', () => this.toggleSidebar());
 
         // Photo upload
         document.getElementById('photo-upload')?.addEventListener('change', (e) => this.handlePhotoUpload(e));
@@ -216,20 +158,26 @@ class ChamadoProApp {
 
     updateUserInterface() {
         const loginBtn = document.getElementById('login-btn');
-        const registerBtn = document.getElementById('register-btn');
+        const registerBtnLegacy = document.getElementById('register-btn'); // pode não existir
+        const registerClientBtn = document.getElementById('register-client-btn');
+        const registerProviderBtn = document.getElementById('register-provider-btn');
         const userMenu = document.getElementById('user-menu');
         const userName = document.getElementById('user-name');
 
         if (this.currentUser) {
-            loginBtn.style.display = 'none';
-            registerBtn.style.display = 'none';
-            userMenu.style.display = 'flex';
-            userName.textContent = this.currentUser.name;
+            if (loginBtn) loginBtn.style.display = 'none';
+            if (registerBtnLegacy) registerBtnLegacy.style.display = 'none';
+            if (registerClientBtn) registerClientBtn.style.display = 'none';
+            if (registerProviderBtn) registerProviderBtn.style.display = 'none';
+            if (userMenu) userMenu.style.display = 'flex';
+            if (userName) userName.textContent = this.currentUser.name;
             this.showUserDashboard();
         } else {
-            loginBtn.style.display = 'block';
-            registerBtn.style.display = 'block';
-            userMenu.style.display = 'none';
+            if (loginBtn) loginBtn.style.display = 'block';
+            if (registerBtnLegacy) registerBtnLegacy.style.display = 'block';
+            if (registerClientBtn) registerClientBtn.style.display = 'inline-block';
+            if (registerProviderBtn) registerProviderBtn.style.display = 'inline-block';
+            if (userMenu) userMenu.style.display = 'none';
         }
     }
 
@@ -303,10 +251,10 @@ class ChamadoProApp {
         
         if (this.currentUser.type === 'client') {
             this.navigateToSection('client-dashboard');
-            document.getElementById('client-name').textContent = this.currentUser.name;
+            // client-name element doesn't exist, so we skip it
         } else if (this.currentUser.type === 'provider') {
             this.navigateToSection('provider-dashboard');
-            document.getElementById('provider-name').textContent = this.currentUser.name;
+            // provider-name element doesn't exist, so we skip it
         }
     }
 
@@ -314,7 +262,13 @@ class ChamadoProApp {
         const professionalsList = document.getElementById('professionals-list');
         if (!professionalsList) return;
 
+        // Clear list first
         professionalsList.innerHTML = '';
+
+        // If no search criteria, show empty state
+        if (!serviceType && !priceType && !ratingMin) {
+            return;
+        }
 
         // Filter professionals based on criteria
         let filteredProfessionals = this.professionalsData;
@@ -871,13 +825,26 @@ class ChamadoProApp {
 
     toggleMobileMenu() {
         const drawer = document.getElementById('mobile-nav');
-        if (!drawer) return;
-        if (drawer.style.display === 'none' || drawer.style.display === '') {
+        const overlay = document.getElementById('mobile-overlay');
+        if (!drawer || !overlay) return;
+        const isClosed = drawer.style.display === 'none' || drawer.style.display === '';
+        if (isClosed) {
             drawer.style.display = 'flex';
+            overlay.style.display = 'block';
             setTimeout(() => drawer.classList.add('open'), 10);
         } else {
             drawer.classList.remove('open');
-            setTimeout(() => drawer.style.display = 'none', 250);
+            setTimeout(() => {
+                drawer.style.display = 'none';
+                overlay.style.display = 'none';
+            }, 250);
+        }
+    }
+
+    toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar-menu');
+        if (sidebar) {
+            sidebar.classList.toggle('open');
         }
     }
 
