@@ -328,10 +328,7 @@ class ChamadoProApp {
         document.getElementById('drawer-login')?.addEventListener('click', (e) => {
             e.preventDefault();
             console.log('Drawer login button clicked');
-            this.toggleMobileMenu();
-            setTimeout(() => {
-                this.showLoginChoiceModal();
-            }, 300);
+            this.showLoginChoiceModal();
         });
         document.getElementById('register-client-btn')?.addEventListener('click', () => { 
             console.log('Cadastro Cliente clicado');
@@ -343,17 +340,11 @@ class ChamadoProApp {
         });
         document.getElementById('drawer-register-client')?.addEventListener('click', () => { 
             console.log('Cadastro Cliente Mobile clicado');
-            this.toggleMobileMenu();
-            setTimeout(() => {
-                this.showInitialRegisterModal('client'); 
-            }, 300);
+            this.showInitialRegisterModal('client'); 
         });
         document.getElementById('drawer-register-provider')?.addEventListener('click', () => { 
             console.log('Cadastro Prestador Mobile clicado');
-            this.toggleMobileMenu();
-            setTimeout(() => {
-                this.showInitialRegisterModal('provider'); 
-            }, 300);
+            this.showInitialRegisterModal('provider'); 
         });
         document.getElementById('logout-btn')?.addEventListener('click', () => this.logout());
         document.getElementById('client-logout')?.addEventListener('click', () => this.logout());
@@ -1526,13 +1517,20 @@ class ChamadoProApp {
     }
 
     showLoginChoiceModal() {
+        console.log('showLoginChoiceModal called');
         const modal = document.getElementById('login-modal');
         const overlay = document.getElementById('modal-overlay');
+        
+        console.log('Modal found:', modal);
+        console.log('Overlay found:', overlay);
         
         if (modal && overlay) {
             // Reset login form to show choice screen
             const loginForm = document.getElementById('login-form');
             const loginChoice = document.querySelector('.login-choice');
+            
+            console.log('Login form found:', loginForm);
+            console.log('Login choice found:', loginChoice);
             
             if (loginForm && loginChoice) {
                 loginForm.style.display = 'none';
@@ -1541,6 +1539,7 @@ class ChamadoProApp {
             
             overlay.style.display = 'block';
             modal.style.display = 'block';
+            console.log('Modal should be visible now');
         }
     }
 
