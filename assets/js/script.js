@@ -325,9 +325,13 @@ class ChamadoProApp {
     bindEvents() {
         // Navigation buttons
         document.getElementById('login-btn')?.addEventListener('click', () => this.showLoginChoiceModal());
-        document.getElementById('drawer-login')?.addEventListener('click', () => {
-            this.closeDrawer();
-            this.showLoginChoiceModal();
+        document.getElementById('drawer-login')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('Drawer login button clicked');
+            this.toggleMobileMenu();
+            setTimeout(() => {
+                this.showLoginChoiceModal();
+            }, 300);
         });
         document.getElementById('register-client-btn')?.addEventListener('click', () => { 
             console.log('Cadastro Cliente clicado');
@@ -339,13 +343,17 @@ class ChamadoProApp {
         });
         document.getElementById('drawer-register-client')?.addEventListener('click', () => { 
             console.log('Cadastro Cliente Mobile clicado');
-            this.closeDrawer();
-            this.showInitialRegisterModal('client'); 
+            this.toggleMobileMenu();
+            setTimeout(() => {
+                this.showInitialRegisterModal('client'); 
+            }, 300);
         });
         document.getElementById('drawer-register-provider')?.addEventListener('click', () => { 
             console.log('Cadastro Prestador Mobile clicado');
-            this.closeDrawer();
-            this.showInitialRegisterModal('provider'); 
+            this.toggleMobileMenu();
+            setTimeout(() => {
+                this.showInitialRegisterModal('provider'); 
+            }, 300);
         });
         document.getElementById('logout-btn')?.addEventListener('click', () => this.logout());
         document.getElementById('client-logout')?.addEventListener('click', () => this.logout());
