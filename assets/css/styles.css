@@ -232,6 +232,21 @@ html { height: 100%; }
     padding: 1rem 0;
 }
 
+/* Mobile optimizations for landing hero */
+@media (max-width: 768px) {
+    .landing-hero {
+        padding: 0.75rem 0;
+        margin-bottom: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-hero {
+        padding: 0.5rem 0;
+        margin-bottom: 0.5rem;
+    }
+}
+
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
@@ -248,12 +263,40 @@ html { height: 100%; }
     font-weight: 700;
 }
 
+@media (max-width: 768px) {
+    .landing-hero h2 {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-hero h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.25rem;
+    }
+}
+
 .landing-hero p {
     font-size: 1.3rem;
     color: var(--gray-600);
     margin-bottom: 1rem;
     animation: fadeInUp 1s ease-out 0.3s both;
     font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .landing-hero p {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .landing-hero p {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
 }
 
 
@@ -279,6 +322,13 @@ html { height: 100%; }
     gap: 1rem;
     margin-top: 1rem;
     animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+@media (max-width: 480px) {
+    .service-cards {
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+    }
 }
 
 @media (min-width: 768px) {
@@ -455,6 +505,11 @@ html { height: 100%; }
     .card-footer {
         padding: 0.5rem 0.75rem 0.75rem 0.75rem;
     }
+    
+    .card-footer .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
 }
 
 /* Card Badges */
@@ -502,6 +557,18 @@ html { height: 100%; }
     display: flex;
     align-items: center;
     gap: 0.5rem;
+}
+
+@media (max-width: 480px) {
+    .card-features {
+        gap: 0.25rem;
+        margin: 0.5rem 0;
+    }
+    
+    .feature {
+        font-size: 0.75rem;
+        gap: 0.25rem;
+    }
 }
 
 /* Price Info */
