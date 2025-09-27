@@ -325,6 +325,10 @@ class ChamadoProApp {
     bindEvents() {
         // Navigation buttons
         document.getElementById('login-btn')?.addEventListener('click', () => this.showLoginChoiceModal());
+        document.getElementById('drawer-login')?.addEventListener('click', () => {
+            this.closeDrawer();
+            this.showLoginChoiceModal();
+        });
         document.getElementById('register-client-btn')?.addEventListener('click', () => { 
             console.log('Cadastro Cliente clicado');
             this.showInitialRegisterModal('client'); 
@@ -335,10 +339,12 @@ class ChamadoProApp {
         });
         document.getElementById('drawer-register-client')?.addEventListener('click', () => { 
             console.log('Cadastro Cliente Mobile clicado');
+            this.closeDrawer();
             this.showInitialRegisterModal('client'); 
         });
         document.getElementById('drawer-register-provider')?.addEventListener('click', () => { 
             console.log('Cadastro Prestador Mobile clicado');
+            this.closeDrawer();
             this.showInitialRegisterModal('provider'); 
         });
         document.getElementById('logout-btn')?.addEventListener('click', () => this.logout());
