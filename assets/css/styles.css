@@ -538,14 +538,11 @@ html { height: 100%; }
         justify-content: center;
         min-width: 0; /* Permite que o flex item encolha */
         overflow: hidden; /* Evita overflow */
+        margin-right: 0.5rem; /* Espaço para o ícone */
     }
     
     .service-card .card-footer {
-        padding: 0;
-        margin-left: 0.25rem;
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
+        display: none; /* Esconde o footer vazio no mobile */
     }
     
     .service-card .card-footer .btn {
