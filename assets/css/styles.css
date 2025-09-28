@@ -466,6 +466,7 @@ html { height: 100%; }
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        gap: 0.3rem;
     }
 }
 
@@ -582,6 +583,7 @@ html { height: 100%; }
         font-size: 2rem;
         margin-bottom: 0.3rem;
         display: block;
+        order: 1;
     }
     
     .service-card::after {
@@ -613,10 +615,11 @@ html { height: 100%; }
         font-size: 0.9rem;
         font-weight: 600;
         color: var(--gray-800);
-        margin: 0;
+        margin: 0 0 0.5rem 0;
         line-height: 1.2;
         text-align: center;
         display: block !important;
+        order: 2;
     }
 }
 
@@ -771,17 +774,6 @@ html { height: 100%; }
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-@media (max-width: 480px) {
-    .service-card h3 {
-        font-size: 1rem;
-        margin-bottom: 0.2rem;
-        font-weight: 600;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: 100%;
-    }
-}
 
 .service-card p {
     color: var(--gray-600);
@@ -4206,70 +4198,6 @@ html { height: 100%; }
     box-shadow: 0 4px 12px rgba(244,67,54,0.3);
 }
 
-@media (max-width: 480px) {
-    .landing-hero h2 {
-        font-size: 1.8rem;
-    }
-    
-    
-    .service-card {
-        padding: 0;
-    }
-    
-    .card-header {
-        padding: 1rem 1rem 0.5rem 1rem;
-    }
-    
-    .card-content {
-        padding: 0 1rem;
-    }
-    
-    .card-footer {
-        padding: 0.5rem 1rem 1rem 1rem;
-    }
-    
-    .action-card, .summary-card {
-        padding: 1.25rem;
-    }
-    
-    .search-filters {
-        padding: 1rem;
-    }
-    
-    .card-icon {
-        font-size: 2rem;
-    }
-    
-    .service-card h3, .action-card h3, .summary-card h3 {
-        font-size: 1.2rem;
-    }
-    
-    .service-card p, .action-card p {
-        font-size: 0.9rem;
-    }
-    
-    .marketing-card {
-        padding: 0.75rem 1rem;
-    }
-    
-    .mk-text strong {
-        font-size: 0.8rem;
-    }
-    
-    .mk-text small {
-        font-size: 0.7rem;
-    }
-    
-    .professional-card {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .professional-actions {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
 
 /* Footer responsivo extra: 2 colunas em telas médias, 1 no mobile */
 @media (max-width: 1024px) {
