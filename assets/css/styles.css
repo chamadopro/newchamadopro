@@ -441,6 +441,7 @@ html { height: 100%; }
     }
 }
 
+/* Mobile pequeno (320px - 480px) */
 @media (max-width: 480px) {
     .service-cards {
         padding: 0.5rem;
@@ -466,6 +467,95 @@ html { height: 100%; }
         justify-content: center;
         align-items: center;
     }
+}
+
+/* Mobile muito pequeno (320px - 360px) */
+@media (max-width: 360px) {
+    .service-cards {
+        padding: 0.4rem;
+        gap: 0.4rem;
+    }
+    
+    .service-card {
+        padding: 0.5rem;
+        min-height: 65px;
+        border-radius: 8px;
+    }
+    
+    .service-card::before {
+        font-size: 1.8rem;
+        margin-bottom: 0.2rem;
+    }
+    
+    .service-card h3 {
+        font-size: 0.8rem;
+    }
+    
+    .service-card::after {
+        font-size: 0.55rem;
+        padding: 0.15rem 0.3rem;
+        top: 0.4rem;
+        right: 0.4rem;
+    }
+}
+
+/* Mobile médio (361px - 414px) */
+@media (min-width: 361px) and (max-width: 414px) {
+    .service-cards {
+        padding: 0.6rem;
+        gap: 0.6rem;
+    }
+    
+    .service-card {
+        padding: 0.8rem;
+        min-height: 80px;
+    }
+    
+    .service-card::before {
+        font-size: 2.2rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .service-card h3 {
+        font-size: 0.95rem;
+    }
+    
+    .service-card::after {
+        font-size: 0.65rem;
+        padding: 0.25rem 0.45rem;
+        top: 0.6rem;
+        right: 0.6rem;
+    }
+}
+
+/* Mobile grande (415px - 480px) */
+@media (min-width: 415px) and (max-width: 480px) {
+    .service-cards {
+        padding: 0.7rem;
+        gap: 0.7rem;
+    }
+    
+    .service-card {
+        padding: 1rem;
+        min-height: 85px;
+    }
+    
+    .service-card::before {
+        font-size: 2.3rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1rem;
+    }
+    
+    .service-card::after {
+        font-size: 0.7rem;
+        padding: 0.3rem 0.5rem;
+        top: 0.7rem;
+        right: 0.7rem;
+    }
+}
     
     .service-card:hover {
         transform: translateY(-2px);
