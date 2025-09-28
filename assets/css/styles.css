@@ -329,13 +329,14 @@ html { height: 100%; }
         grid-template-columns: 1fr;
         gap: 1rem;
         margin: 1rem auto 0;
-        max-width: 400px;
+        max-width: 100%;
         padding: 0 1rem;
     }
     
     .service-card {
         padding: 1rem;
         min-height: 120px;
+        width: 100%;
     }
     
     .service-card h3 {
