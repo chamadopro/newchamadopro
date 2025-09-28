@@ -57,7 +57,7 @@
         <section id="landing-page" class="section active">
 
             <div class="service-cards">
-                <div class="service-card emergency" onclick="navigateToSearch('emergency')">
+                <div class="service-card emergency" onclick="navigateToSearch('emergency')" data-icon="🚨" data-badge="URGENTE">
                     <div class="card-header">
                     <div class="card-icon">🚨</div>
                         <span class="card-badge emergency-badge">URGENTE</span>
@@ -75,7 +75,7 @@
                     </div>
         </div>
         
-                <div class="service-card standard" onclick="navigateToSearch('standard')">
+                <div class="service-card standard" onclick="navigateToSearch('standard')" data-icon="🔍" data-badge="POPULAR">
                     <div class="card-header">
                     <div class="card-icon">🔍</div>
                         <span class="card-badge standard-badge">POPULAR</span>
@@ -93,7 +93,7 @@
                     </div>
       </div>
 
-                <div class="service-card enterprise" onclick="navigateToSearch('enterprise')">
+                <div class="service-card enterprise" onclick="navigateToSearch('enterprise')" data-icon="🏢" data-badge="PREMIUM">
                     <div class="card-header">
                     <div class="card-icon">🏢</div>
                         <span class="card-badge enterprise-badge">PREMIUM</span>
@@ -166,26 +166,26 @@
                     <div class="form-field">
                         <label for="service-type-toolbar">🔧 Tipo de Serviço</label>
                         <select id="service-type-toolbar" class="form-select">
-                                <option value="">Selecione o serviço</option>
+                        <option value="">Selecione o serviço</option>
                             <option value="eletricista">⚡ Eletricista</option>
                             <option value="encanador">🚿 Encanador</option>
                             <option value="chaveiro">🗝️ Chaveiro</option>
                             <option value="limpeza">🧹 Limpeza</option>
                             <option value="pintor">🎨 Pintor</option>
                             <option value="pedreiro">🔨 Pedreiro</option>
-              </select>
-          </div>
+                    </select>
+            </div>
 
                     <div class="form-field">
                         <label for="location-input">📍 Localização</label>
                         <input type="text" id="location-input" class="form-input" placeholder="Digite seu CEP ou bairro">
-          </div>
-          </div>
+                </div>
+            </div>
 
                 <div class="form-field full-width">
                     <label for="st-desc">📝 Descreva o que precisa</label>
                     <textarea id="st-desc" class="form-textarea" rows="3" placeholder="Ex.: Vazamento na pia do banheiro, urgente. Descreva o problema com detalhes..."></textarea>
-      </div>
+        </div>
 
                 <div class="form-field full-width">
                     <label for="st-photo-input">📸 Fotos (opcional)</label>
@@ -195,10 +195,10 @@
                             <div class="upload-icon">📷</div>
                             <div class="upload-text">Clique ou arraste fotos aqui</div>
                             <div class="upload-hint">Máximo 5 imagens • Ajuda o prestador a entender melhor</div>
-                        </div>
+          </div>
                         <div class="photo-preview" id="st-photo-preview"></div>
           </div>
-        </div>
+          </div>
 
                 <div class="form-actions">
                     <div class="budget-type-selector">
@@ -210,7 +210,7 @@
                                     <h5>Orçamento Padrão</h5>
                                     <p>Proposta online • Pagamento seguro</p>
                                     <span class="budget-feature">✅ Sem taxa adicional</span>
-                                </div>
+      </div>
                             </button>
                             <button id="btn-budget-visit" class="budget-btn budget-visit">
                                 <div class="budget-icon">🏠</div>
@@ -218,7 +218,7 @@
                                     <h5>Orçamento com Visita</h5>
                                     <p>Visita presencial • Negociação direta</p>
                                     <span class="budget-feature">🎯 Orçamento personalizado</span>
-                                </div>
+          </div>
                             </button>
                             <button id="btn-budget-mixed" class="budget-btn budget-mixed">
                                 <div class="budget-icon">🔄</div>
@@ -226,7 +226,7 @@
                                     <h5>Orçamento Combinado</h5>
                                     <p>Normal + Visita • Compare as propostas</p>
                                     <span class="budget-feature">🎯 Melhor custo-benefício</span>
-                                </div>
+        </div>
                             </button>
               </div>
             </div>
@@ -1001,7 +1001,7 @@
             </div>
             <div class="footer-section">
                 <h4>Contato</h4>
-                <p>📧 contato@chamadopro.com</p>
+                <p>📧 contato@chamadopro.com.br</p>
                 <p>📱 (11) 99999-9999</p>
             </div>
             </div>
