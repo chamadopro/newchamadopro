@@ -454,21 +454,21 @@ html { height: 100%; }
         border-radius: 10px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.06);
         margin: 0 auto 0.5rem;
-        padding: 0.6rem;
+        padding: 0.8rem;
         text-align: center;
         position: relative;
         background: var(--white);
         border: 1px solid var(--gray-200);
         transition: all 0.3s ease;
         cursor: pointer;
-        min-height: 75px;
+        min-height: 85px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 0.3rem;
-        max-width: 280px;
-        width: 90%;
+        gap: 0.4rem;
+        max-width: 1200px;
+        width: calc(100% - 2rem);
     }
 }
 
@@ -2266,15 +2266,15 @@ html { height: 100%; }
 /* Extra small screens (480px and below) */
 @media (max-width: 480px) {
     .header-content {
-        padding: 0.75rem;
+        padding: 0.5rem;
     }
     
     .header-logo {
-        height: 32px;
+        height: 28px;
     }
     
     .logo-container {
-        height: 32px;
+        height: 28px;
     }
     
     .landing-hero {
