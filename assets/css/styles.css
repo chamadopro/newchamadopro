@@ -470,93 +470,6 @@ html { height: 100%; }
     }
 }
 
-/* Mobile muito pequeno (320px - 360px) */
-@media (max-width: 360px) {
-    .service-cards {
-        padding: 0.4rem;
-        gap: 0.4rem;
-    }
-    
-    .service-card {
-        padding: 0.5rem;
-        min-height: 65px;
-        border-radius: 8px;
-    }
-    
-    .service-card::before {
-        font-size: 1.8rem;
-        margin-bottom: 0.2rem;
-    }
-    
-    .service-card h3 {
-        font-size: 0.8rem;
-    }
-    
-    .service-card::after {
-        font-size: 0.55rem;
-        padding: 0.15rem 0.3rem;
-        top: 0.4rem;
-        right: 0.4rem;
-    }
-}
-
-/* Mobile médio (361px - 414px) */
-@media (min-width: 361px) and (max-width: 414px) {
-    .service-cards {
-        padding: 0.6rem;
-        gap: 0.6rem;
-    }
-    
-    .service-card {
-        padding: 0.8rem;
-        min-height: 80px;
-    }
-    
-    .service-card::before {
-        font-size: 2.2rem;
-        margin-bottom: 0.4rem;
-    }
-    
-    .service-card h3 {
-        font-size: 0.95rem;
-    }
-    
-    .service-card::after {
-        font-size: 0.65rem;
-        padding: 0.25rem 0.45rem;
-        top: 0.6rem;
-        right: 0.6rem;
-    }
-}
-
-/* Mobile grande (415px - 480px) */
-@media (min-width: 415px) and (max-width: 480px) {
-    .service-cards {
-        padding: 0.7rem;
-        gap: 0.7rem;
-    }
-    
-    .service-card {
-        padding: 1rem;
-        min-height: 85px;
-    }
-    
-    .service-card::before {
-        font-size: 2.3rem;
-        margin-bottom: 0.5rem;
-    }
-    
-    .service-card h3 {
-        font-size: 1rem;
-    }
-    
-    .service-card::after {
-        font-size: 0.7rem;
-        padding: 0.3rem 0.5rem;
-        top: 0.7rem;
-        right: 0.7rem;
-    }
-}
     
     .service-card:hover {
         transform: translateY(-2px);
@@ -564,7 +477,7 @@ html { height: 100%; }
         border-color: var(--primary-color);
     }
     
-    /* Reorganiza os elementos para mobile */
+    /* Mobile: esconde elementos desnecessários */
     .service-card .card-header {
         display: none;
     }
@@ -577,18 +490,29 @@ html { height: 100%; }
         display: none;
     }
     
-    /* Cria novos elementos visíveis para mobile */
-    .service-card::before {
-        content: attr(data-icon);
-        font-size: 2rem;
-        margin-bottom: 0.3rem;
-        display: block;
-        order: 1;
+    /* Mobile: mostra apenas título */
+    .service-card .card-content h3 {
+        display: block !important;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--gray-800);
+        margin: 0 0 0.5rem 0;
+        text-align: center;
     }
     
+    /* Mobile: ícone via pseudo-elemento */
+.service-card::before {
+        content: attr(data-icon);
+        font-size: 2rem;
+        display: block;
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Mobile: badge via pseudo-elemento */
     .service-card::after {
         content: attr(data-badge);
-        position: absolute;
+    position: absolute;
         top: 0.5rem;
         right: 0.5rem;
         font-size: 0.6rem;
@@ -596,10 +520,6 @@ html { height: 100%; }
         border-radius: 8px;
         font-weight: 600;
         color: var(--white);
-        white-space: nowrap;
-    }
-    
-    .service-card.emergency::after {
         background: #ff6b35;
     }
     
@@ -611,16 +531,6 @@ html { height: 100%; }
         background: #ff9800;
     }
     
-    .service-card h3 {
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--gray-800);
-        margin: 0 0 0.5rem 0;
-        line-height: 1.2;
-        text-align: center;
-        display: block !important;
-        order: 2;
-    }
 }
 
 
