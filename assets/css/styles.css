@@ -257,12 +257,6 @@ html { height: 100%; }
     }
 }
 
-@media (max-width: 480px) {
-    .landing-hero {
-        padding: 0.5rem 0;
-        margin-bottom: 0.5rem;
-    }
-}
 
 .hero-content {
     max-width: 800px;
@@ -287,12 +281,6 @@ html { height: 100%; }
     }
 }
 
-@media (max-width: 480px) {
-    .landing-hero h2 {
-        font-size: 1.8rem;
-        margin-bottom: 0.25rem;
-    }
-}
 
 .landing-hero p {
     font-size: 1.3rem;
@@ -309,12 +297,6 @@ html { height: 100%; }
     }
 }
 
-@media (max-width: 480px) {
-    .landing-hero p {
-        font-size: 1rem;
-        margin-bottom: 0.25rem;
-    }
-}
 
 
 @keyframes fadeInUp {
@@ -2231,39 +2213,6 @@ html { height: 100%; }
     }
 }
 
-/* Extra small screens (480px and below) */
-@media (max-width: 480px) {
-    .header-content {
-        padding: 0.5rem;
-    }
-    
-    .header-logo {
-        height: 28px;
-    }
-    
-    .logo-container {
-        height: 28px;
-    }
-    
-    .landing-hero {
-        padding: 1rem 0;
-        text-align: center;
-    }
-    
-    .landing-hero h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-    }
-    
-    .landing-hero p {
-        font-size: 1rem;
-        margin-bottom: 1.5rem;
-    }
-    
-    
-    .service-card {
-        padding: 1rem;
-    }
     
     .quick-request-form {
         padding: 0.75rem;
