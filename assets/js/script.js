@@ -346,6 +346,15 @@ class ChamadoProApp {
             console.log('Cadastro Prestador Mobile clicado');
             this.showInitialRegisterModal('provider'); 
         });
+        
+        // Drawer logout button
+        document.getElementById('drawer-logout')?.addEventListener('click', () => {
+            console.log('Logout Mobile clicado');
+            this.toggleMobileMenu();
+            setTimeout(() => {
+                this.logout();
+            }, 300);
+        });
         document.getElementById('logout-btn')?.addEventListener('click', () => this.logout());
         document.getElementById('client-logout')?.addEventListener('click', () => this.logout());
         document.getElementById('provider-logout')?.addEventListener('click', () => this.logout());
@@ -377,6 +386,7 @@ class ChamadoProApp {
         // Budget type selection
         document.getElementById('btn-budget-standard')?.addEventListener('click', () => this.selectBudgetType('standard'));
         document.getElementById('btn-budget-visit')?.addEventListener('click', () => this.selectBudgetType('visit'));
+        document.getElementById('btn-budget-mixed')?.addEventListener('click', () => this.selectBudgetType('mixed'));
         
         // Initial registration form
         document.getElementById('initial-register-form-element')?.addEventListener('submit', (e) => {
@@ -421,13 +431,27 @@ class ChamadoProApp {
         const registerProviderBtn = document.getElementById('register-provider-btn');
         const userMenu = document.getElementById('user-menu');
         const userName = document.getElementById('user-name');
+        
+        // Mobile drawer elements
+        const drawerLogin = document.getElementById('drawer-login');
+        const drawerRegisterClient = document.getElementById('drawer-register-client');
+        const drawerRegisterProvider = document.getElementById('drawer-register-provider');
+        const drawerLogout = document.getElementById('drawer-logout');
 
         if (this.currentUser) {
+            // Desktop header
             if (loginBtn) loginBtn.style.display = 'none';
             if (registerClientBtn) registerClientBtn.style.display = 'none';
             if (registerProviderBtn) registerProviderBtn.style.display = 'none';
             if (userMenu) userMenu.style.display = 'flex';
             if (userName) userName.textContent = this.currentUser.name;
+            
+            // Mobile drawer
+            if (drawerLogin) drawerLogin.style.display = 'none';
+            if (drawerRegisterClient) drawerRegisterClient.style.display = 'none';
+            if (drawerRegisterProvider) drawerRegisterProvider.style.display = 'none';
+            if (drawerLogout) drawerLogout.style.display = 'block';
+            
             this.showUserDashboard();
             this.updateRequestsCounter();
             
@@ -436,10 +460,17 @@ class ChamadoProApp {
                 this.updateProviderDashboardCounters();
             }
         } else {
+            // Desktop header
             if (loginBtn) loginBtn.style.display = 'block';
             if (registerClientBtn) registerClientBtn.style.display = 'inline-block';
             if (registerProviderBtn) registerProviderBtn.style.display = 'inline-block';
             if (userMenu) userMenu.style.display = 'none';
+            
+            // Mobile drawer
+            if (drawerLogin) drawerLogin.style.display = 'block';
+            if (drawerRegisterClient) drawerRegisterClient.style.display = 'block';
+            if (drawerRegisterProvider) drawerRegisterProvider.style.display = 'block';
+            if (drawerLogout) drawerLogout.style.display = 'none';
         }
     }
 
@@ -2385,6 +2416,17 @@ ChamadoProApp.prototype.updateSendToAllOption = function(budgetType) {
         const hint = checkboxLabel.querySelector('.checkbox-hint');
         if (hint) {
             hint.textContent = 'Para orçamento com visita, selecione prestadores específicos';
+        }
+    } else if (budgetType === 'mixed') {
+        // For mixed budget, enable "send to all" with special message
+        checkbox.disabled = false;
+        checkboxLabel.style.opacity = '1';
+        checkboxLabel.style.cursor = 'pointer';
+        
+        // Update hint text
+        const hint = checkboxLabel.querySelector('.checkbox-hint');
+        if (hint) {
+            hint.textContent = 'Receba propostas de ambos os tipos para comparar';
         }
     } else {
         // For standard budget, enable "send to all" option
