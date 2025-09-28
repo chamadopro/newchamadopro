@@ -445,12 +445,12 @@ html { height: 100%; }
     .service-card {
         border-radius: 12px;
         box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        min-height: 100px;
+        min-height: 80px;
         margin-bottom: 0.75rem;
         display: flex;
         flex-direction: row;
         align-items: center;
-        padding: 0.75rem;
+        padding: 0.6rem;
     }
 }
 
@@ -518,16 +518,16 @@ html { height: 100%; }
 @media (max-width: 480px) {
     .service-card .card-header {
         padding: 0;
-        margin-right: 0.75rem;
+        margin-right: 0.5rem;
         flex-shrink: 0;
         position: relative;
-        width: 50px;
-        height: 50px;
+        width: 40px;
+        height: 40px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: var(--gray-50);
-        border-radius: 10px;
+        border-radius: 8px;
     }
     
     .service-card .card-content {
@@ -549,10 +549,10 @@ html { height: 100%; }
     }
     
     .service-card .card-footer .btn {
-        padding: 0.4rem 0.8rem;
-        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+        font-size: 0.7rem;
         white-space: nowrap;
-        max-width: 100px; /* Limita largura máxima */
+        max-width: 90px; /* Limita largura máxima */
         overflow: hidden;
         text-overflow: ellipsis;
         flex-shrink: 0;
@@ -641,7 +641,7 @@ html { height: 100%; }
 
 @media (max-width: 480px) {
     .service-card .card-icon {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin: 0;
         line-height: 1;
     }
@@ -658,7 +658,7 @@ html { height: 100%; }
 
 @media (max-width: 480px) {
     .service-card h3 {
-        font-size: 1.1rem;
+        font-size: 1rem;
         margin-bottom: 0.2rem;
         font-weight: 600;
         white-space: nowrap;
@@ -677,18 +677,7 @@ html { height: 100%; }
 
 @media (max-width: 480px) {
     .service-card p {
-        font-size: 0.8rem;
-        line-height: 1.2;
-        margin-bottom: 0.2rem;
-        color: var(--gray-500);
-        display: -webkit-box;
-        -webkit-line-clamp: 2; /* Limita a 2 linhas */
-        line-clamp: 2; /* Propriedade padrão */
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        word-wrap: break-word;
-        max-width: 100%;
+        display: none; /* Esconde as descrições no mobile */
     }
 }
 
