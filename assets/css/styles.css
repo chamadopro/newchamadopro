@@ -418,31 +418,31 @@ html { height: 100%; }
     
     /* Client Dashboard - telas muito pequenas */
     #client-dashboard .summary-cards {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 0.5rem !important;
-        padding: 0 0.25rem !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 0.4rem !important;
+        padding: 0 0.2rem !important;
         margin: 0.5rem auto 1.5rem !important;
     }
     
     #client-dashboard .summary-card {
-        min-height: 95px !important;
-        padding: 0.5rem 0.25rem !important;
-        border-radius: 6px !important;
+        min-height: 85px !important;
+        padding: 0.4rem 0.2rem !important;
+        border-radius: 5px !important;
     }
     
     #client-dashboard .summary-card .card-icon {
-        font-size: 1.2rem !important;
-        margin-bottom: 0.25rem !important;
-    }
-    
-    #client-dashboard .summary-card h3 {
-        font-size: 0.7rem !important;
-        line-height: 1.1 !important;
+        font-size: 1.1rem !important;
         margin-bottom: 0.2rem !important;
     }
     
+    #client-dashboard .summary-card h3 {
+        font-size: 0.6rem !important;
+        line-height: 1.0 !important;
+        margin-bottom: 0.15rem !important;
+    }
+    
     #client-dashboard .summary-card .count {
-        font-size: 0.65rem !important;
+        font-size: 0.55rem !important;
     }
     
     #client-dashboard .dashboard-header h2 {
@@ -469,13 +469,13 @@ html { height: 100%; }
     
     .marketing-cards {
         grid-template-columns: 1fr !important;
-        gap: 0.5rem !important;
+        gap: 0.4rem !important;
     }
     
     .marketing-card {
-        padding: 0.75rem 0.5rem !important;
-        min-height: 100px !important;
-        border-radius: 6px !important;
+        padding: 0.6rem 0.4rem !important;
+        min-height: 90px !important;
+        border-radius: 5px !important;
     }
     
     .marketing-icon {
@@ -4072,33 +4072,33 @@ html { height: 100%; }
     
     /* Client Dashboard Mobile */
     #client-dashboard .summary-cards {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
         max-width: 100%;
         margin: 1rem auto 2rem;
-        padding: 0 0.5rem;
+        padding: 0 0.25rem;
     }
     
     #client-dashboard .summary-card {
-        min-height: 110px;
-        padding: 0.75rem 0.5rem;
-        border-radius: 8px;
+        min-height: 95px;
+        padding: 0.5rem 0.25rem;
+        border-radius: 6px;
     }
     
     #client-dashboard .summary-card .card-icon {
-        font-size: 1.5rem;
-        margin-bottom: 0.4rem;
-    }
-    
-    #client-dashboard .summary-card h3 {
-        font-size: 0.75rem;
-        font-weight: 700;
-        line-height: 1.2;
+        font-size: 1.3rem;
         margin-bottom: 0.3rem;
     }
     
+    #client-dashboard .summary-card h3 {
+        font-size: 0.65rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 0.2rem;
+    }
+    
     #client-dashboard .summary-card .count {
-        font-size: 0.7rem;
+        font-size: 0.6rem;
         font-weight: 600;
     }
     
