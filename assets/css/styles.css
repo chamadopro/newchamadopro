@@ -416,6 +416,88 @@ html { height: 100%; }
         align-items: center !important;
     }
     
+    /* Client Dashboard - telas muito pequenas */
+    #client-dashboard .summary-cards {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.5rem !important;
+        padding: 0 0.25rem !important;
+        margin: 0.5rem auto 1.5rem !important;
+    }
+    
+    #client-dashboard .summary-card {
+        min-height: 95px !important;
+        padding: 0.5rem 0.25rem !important;
+        border-radius: 6px !important;
+    }
+    
+    #client-dashboard .summary-card .card-icon {
+        font-size: 1.2rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    #client-dashboard .summary-card h3 {
+        font-size: 0.7rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 0.2rem !important;
+    }
+    
+    #client-dashboard .summary-card .count {
+        font-size: 0.65rem !important;
+    }
+    
+    #client-dashboard .dashboard-header h2 {
+        font-size: 0.9rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    #client-dashboard .header-actions .btn {
+        padding: 0.4rem 0.6rem !important;
+        font-size: 0.7rem !important;
+        min-height: 32px !important;
+    }
+    
+    .marketing-section {
+        padding: 0.75rem !important;
+        margin: 0 auto 1rem !important;
+        border-radius: 8px !important;
+    }
+    
+    .marketing-section h3 {
+        font-size: 1rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    .marketing-cards {
+        grid-template-columns: 1fr !important;
+        gap: 0.5rem !important;
+    }
+    
+    .marketing-card {
+        padding: 0.75rem 0.5rem !important;
+        min-height: 100px !important;
+        border-radius: 6px !important;
+    }
+    
+    .marketing-icon {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.3rem !important;
+    }
+    
+    .marketing-card h4 {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+    
+    .marketing-card p {
+        font-size: 0.7rem !important;
+        margin-bottom: 0.4rem !important;
+    }
+    
+    .marketing-badge {
+        padding: 0.2rem 0.4rem !important;
+        font-size: 0.6rem !important;
+    }
+    
     .service-card .card-header {
         width: 60px !important;
         margin-right: 0.5rem !important;
@@ -1801,15 +1883,19 @@ html { height: 100%; }
 
 #client-dashboard .dashboard-header {
     text-align: center;
-    margin-bottom: 1rem;
-    padding: 1rem 0 0.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 0 0.75rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    border: 1px solid var(--gray-100);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 #client-dashboard .dashboard-header h2 {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     letter-spacing: -0.02em;
     text-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
@@ -1817,17 +1903,19 @@ html { height: 100%; }
 #client-dashboard .header-actions {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
 }
 
 #client-dashboard .header-actions .btn {
-    padding: 0.45rem 0.9rem;
+    padding: 0.5rem 0.75rem;
     font-size: 0.8rem;
     font-weight: 600;
     border-radius: 8px;
     transition: all 0.2s ease;
     box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    min-height: 36px;
 }
 
 #client-dashboard .header-actions .btn:hover {
@@ -2287,9 +2375,9 @@ html { height: 100%; }
         max-width: calc(100vw - 2rem);
         max-height: calc(100vh - 2rem);
         overflow-y: auto;
-}
+    }
 
-.modal-header {
+    .modal-header {
         padding: 1rem;
     }
     
@@ -2365,8 +2453,6 @@ html { height: 100%; }
         padding: 1rem 1.5rem;
         font-size: 1.1rem;
     }
-}
-
     
     .quick-request-form {
         padding: 0.75rem;
@@ -3987,86 +4073,101 @@ html { height: 100%; }
     /* Client Dashboard Mobile */
     #client-dashboard .summary-cards {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        gap: 0.75rem;
         max-width: 100%;
         margin: 1rem auto 2rem;
         padding: 0 0.5rem;
     }
     
     #client-dashboard .summary-card {
-        min-height: 120px;
-        padding: 1rem 0.75rem;
+        min-height: 110px;
+        padding: 0.75rem 0.5rem;
+        border-radius: 8px;
     }
     
     #client-dashboard .summary-card .card-icon {
-        font-size: 1.8rem;
-        margin-bottom: 0.5rem;
+        font-size: 1.5rem;
+        margin-bottom: 0.4rem;
     }
     
     #client-dashboard .summary-card h3 {
-        font-size: 0.85rem;
+        font-size: 0.75rem;
         font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 0.3rem;
     }
     
     #client-dashboard .summary-card .count {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
         font-weight: 600;
     }
     
     #client-dashboard .dashboard-header h2 {
-        font-size: 0.75rem;
-        margin-bottom: 0.5rem;
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+        text-align: center;
     }
     
     #client-dashboard .header-actions {
-        flex-direction: column;
+        flex-direction: row;
         gap: 0.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
     }
     
     #client-dashboard .header-actions .btn {
-        padding: 0.45rem 0.9rem;
-        font-size: 0.8rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+        min-height: 36px;
     }
     
     .marketing-section {
-        padding: 0.75rem;
-        margin: 0 auto 1rem;
-        border-radius: 8px;
+        padding: 1rem;
+        margin: 0 auto 1.5rem;
+        border-radius: 12px;
+        max-width: 100%;
     }
     
     .marketing-section h3 {
-        font-size: 1rem;
-        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        text-align: center;
     }
     
     .marketing-cards {
-        grid-template-columns: 1fr;
-        gap: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
     }
     
     .marketing-card {
-        padding: 0.75rem;
-        min-height: 120px;
+        padding: 1rem 0.75rem;
+        min-height: 110px;
+        border-radius: 8px;
+        text-align: center;
     }
     
     .marketing-icon {
-        font-size: 1.5rem;
-        margin-bottom: 0.25rem;
-    }
-    
-    .marketing-card h4 {
-        font-size: 0.9rem;
-        margin-bottom: 0.25rem;
-    }
-    
-    .marketing-card p {
-        font-size: 0.8rem;
+        font-size: 1.8rem;
         margin-bottom: 0.5rem;
     }
     
+    .marketing-card h4 {
+        font-size: 0.85rem;
+        margin-bottom: 0.3rem;
+        line-height: 1.2;
+    }
+    
+    .marketing-card p {
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+    }
+    
     .marketing-badge {
-        padding: 0.3rem 0.6rem;
-        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+        font-size: 0.65rem;
+        border-radius: 8px;
     }
 }
 
