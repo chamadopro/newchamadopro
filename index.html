@@ -354,28 +354,39 @@
                 <!-- Marketing Section -->
                 <div class="marketing-section">
                     <h3>💎 Ofertas Especiais</h3>
-                    <div class="marketing-cards">
-                        <div class="marketing-card" onclick="showConstructionPartners()">
-                            <div class="marketing-icon">🏗️</div>
-                            <h4>Construtoras Parceiras</h4>
-                            <p>Descontos em materiais e serviços</p>
-                            <span class="marketing-badge">Até 20% OFF</span>
+                    <div class="marketing-carousel">
+                        <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+                        <div class="marketing-cards">
+                            <div class="marketing-card" onclick="showConstructionPartners()">
+                                <div class="marketing-icon">🏗️</div>
+                                <h4>Construtoras Parceiras</h4>
+                                <p>Descontos em materiais e serviços</p>
+                                <span class="marketing-badge">Até 20% OFF</span>
+                            </div>
+                            
+                            <div class="marketing-card" onclick="showCommercialPartners()">
+                                <div class="marketing-icon">🏪</div>
+                                <h4>Lojas Comerciais</h4>
+                                <p>Produtos com preços especiais</p>
+                                <span class="marketing-badge">Frete Grátis</span>
+                            </div>
+                            
+                            <div class="marketing-card" onclick="showInsurancePartners()">
+                                <div class="marketing-icon">🛡️</div>
+                                <h4>Seguros Parceiros</h4>
+                                <p>Proteção para seus projetos</p>
+                                <span class="marketing-badge">-15% Mensal</span>
+                            </div>
+                            
+                            <div class="marketing-card" onclick="showRewards()">
+                                <div class="marketing-icon">🎁</div>
+                                <h4>Programa Rewards</h4>
+                                <p>Ganhe pontos e resgate prêmios</p>
+                                <span class="marketing-badge">+500 pts</span>
+                            </div>
                         </div>
-                        
-                        <div class="marketing-card" onclick="showCommercialPartners()">
-                            <div class="marketing-icon">🏪</div>
-                            <h4>Lojas Comerciais</h4>
-                            <p>Produtos com preços especiais</p>
-                            <span class="marketing-badge">Frete Grátis</span>
-                        </div>
-                        
-                        <div class="marketing-card" onclick="showInsurancePartners()">
-                            <div class="marketing-icon">🛡️</div>
-                            <h4>Seguros Parceiros</h4>
-                            <p>Proteção para seus projetos</p>
-                            <span class="marketing-badge">-15% Mensal</span>
-                        </div>
-            </div>
+                        <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+                    </div>
           </div>
 
                 <div class="sidebar-menu">
