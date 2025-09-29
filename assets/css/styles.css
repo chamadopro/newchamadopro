@@ -86,7 +86,7 @@ html { height: 100%; }
 }
 
 .header-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0.5rem 1rem;
     display: flex;
@@ -227,7 +227,7 @@ html { height: 100%; }
 
 /* Main Content */
 .main-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0.5rem 1rem 0.5rem;
     flex: 1 0 auto;            /* ocupa o espaço disponível acima do rodapé */
@@ -320,7 +320,7 @@ html { height: 100%; }
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
     margin: 2rem auto 0;
-    max-width: 1200px;
+    max-width: 1400px;
     animation: fadeInUp 1s ease-out 0.6s both;
 }
 
@@ -1785,7 +1785,7 @@ html { height: 100%; }
 
 .summary-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 1rem;
     margin-bottom: 2rem;
 }
@@ -1794,22 +1794,60 @@ html { height: 100%; }
 #provider-dashboard .dashboard-content,
 #client-dashboard .dashboard-content {
     display: block;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 1rem;
+}
+
+#client-dashboard .dashboard-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 1rem 0 0.5rem;
+}
+
+#client-dashboard .dashboard-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+#client-dashboard .header-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#client-dashboard .header-actions .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#client-dashboard .header-actions .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
 #provider-dashboard .summary-cards {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    max-width: 800px;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 0.75rem;
+    max-width: 100%;
     margin: 0 auto 2rem;
 }
 
 #client-dashboard .summary-cards {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    max-width: 800px;
-    margin: 0 auto 2rem;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.5rem;
+    max-width: 100%;
+    margin: 2rem auto 3rem;
+    padding: 0 1rem;
 }
 
 #provider-dashboard .sidebar-menu,
@@ -1861,8 +1899,78 @@ html { height: 100%; }
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 1rem;
-    min-height: 120px;
+    padding: 1.5rem 1rem;
+    min-height: 140px;
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gray-100);
+}
+
+#client-dashboard .summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+#client-dashboard .summary-card .card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.75rem;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+#client-dashboard .summary-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+}
+
+#client-dashboard .summary-card .count {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color), #ff8c42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+}
+
+/* Hover effects for client dashboard cards */
+@media (hover: hover) and (pointer: fine) {
+    #client-dashboard .summary-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        border-color: var(--primary-color);
+    }
+    
+    #client-dashboard .summary-card:hover .card-icon {
+        transform: scale(1.1);
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    }
+    
+    #client-dashboard .summary-card:hover h3 {
+        color: var(--accent-color);
+        transform: translateY(-2px);
+    }
+    
+    #client-dashboard .summary-card:hover .count {
+        transform: translateY(-2px);
+        background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
 }
 
 #provider-dashboard .summary-card .card-icon {
@@ -1903,10 +2011,84 @@ html { height: 100%; }
     font-weight: 600;
 }
 
+/* Marketing Carousel */
+.marketing-carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
 .marketing-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 1rem;
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.marketing-card {
+    flex: 0 0 calc(25% - 0.75rem);
+    min-width: 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
+}
+
+.carousel-btn:hover {
+    background: var(--accent-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-btn.prev {
+    left: -20px;
+}
+
+.carousel-btn.next {
+    right: -20px;
+}
+
+/* Mobile carousel adjustments */
+@media (max-width: 768px) {
+    .marketing-cards {
+        display: flex !important;
+        gap: 0.5rem;
+    }
+    
+    .marketing-card {
+        flex: 0 0 100% !important;
+        min-width: 0;
+    }
+    
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .carousel-btn.prev {
+        left: -15px;
+    }
+    
+    .carousel-btn.next {
+        right: -15px;
+    }
 }
 
 .marketing-card {
@@ -2139,7 +2321,7 @@ html { height: 100%; }
     }
     
     .budget-options {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 0.75rem;
     }
     
@@ -2211,7 +2393,7 @@ html { height: 100%; }
     }
     
     .budget-options {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 0.75rem;
     }
     
@@ -3514,7 +3696,7 @@ html { height: 100%; }
 }
 
 .footer-content {
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 0.75rem 1rem 0.5rem;
     display: grid;
@@ -3686,7 +3868,7 @@ html { height: 100%; }
     }
     
     .budget-options {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(3, 1fr);
         gap: 0.75rem;
     }
     
@@ -3805,27 +3987,45 @@ html { height: 100%; }
     /* Client Dashboard Mobile */
     #client-dashboard .summary-cards {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
+        gap: 1rem;
         max-width: 100%;
-        margin: 0 auto 1.5rem;
+        margin: 1rem auto 2rem;
+        padding: 0 0.5rem;
     }
     
     #client-dashboard .summary-card {
-        min-height: 100px;
-        padding: 0.75rem;
+        min-height: 120px;
+        padding: 1rem 0.75rem;
     }
     
     #client-dashboard .summary-card .card-icon {
-        font-size: 1.5rem;
-        margin-bottom: 0.25rem;
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
     }
     
     #client-dashboard .summary-card h3 {
-        font-size: 0.8rem;
+        font-size: 0.85rem;
+        font-weight: 700;
     }
     
     #client-dashboard .summary-card .count {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+    }
+    
+    #client-dashboard .dashboard-header h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    #client-dashboard .header-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    #client-dashboard .header-actions .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
     
     .marketing-section {
