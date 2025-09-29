@@ -303,6 +303,15 @@ class ChamadoProApp {
         this.enableUploadDnd('st-upload-area', 'st-photo-input', 'toolbar');
         // Initialize budget type selection
         this.selectBudgetType('standard');
+        // Initialize carousel
+        this.initCarousel();
+        // Add resize listener for carousel
+        window.addEventListener('resize', () => {
+            this.initCarousel();
+        });
+        
+        // Add hover events to pause/resume auto-play
+        this.addCarouselHoverEvents();
         this.hideLoading();
     }
 
@@ -2231,12 +2240,109 @@ class ChamadoProApp {
     showPrivacy() {
         this.showToast('Funcionalidade em desenvolvimento: Política de Privacidade', 'info');
     }
+
+    // Carousel functionality
+    initCarousel() {
+        this.currentSlide = 0;
+        this.totalSlides = 4; // 4 cards total
+        this.cardsPerView = window.innerWidth <= 768 ? 1 : 4; // 1 on mobile, 4 on desktop
+        this.autoPlayInterval = null;
+        this.updateCarouselButtons();
+        this.startAutoPlay();
+    }
+
+    moveCarousel(direction) {
+        const cardsContainer = document.querySelector('.marketing-cards');
+        if (!cardsContainer) return;
+
+        // Pause auto-play when user interacts
+        this.stopAutoPlay();
+
+        const maxSlide = this.totalSlides - this.cardsPerView;
+        
+        if (direction === -1) {
+            this.currentSlide = Math.max(0, this.currentSlide - 1);
+        } else {
+            this.currentSlide = Math.min(maxSlide, this.currentSlide + 1);
+        }
+
+        const translateX = -(this.currentSlide * (100 / this.cardsPerView));
+        cardsContainer.style.transform = `translateX(${translateX}%)`;
+        
+        this.updateCarouselButtons();
+        
+        // Restart auto-play after 5 seconds of inactivity
+        setTimeout(() => {
+            this.startAutoPlay();
+        }, 5000);
+    }
+
+    updateCarouselButtons() {
+        const prevBtn = document.querySelector('.carousel-btn.prev');
+        const nextBtn = document.querySelector('.carousel-btn.next');
+        
+        if (prevBtn) {
+            prevBtn.style.opacity = this.currentSlide === 0 ? '0.5' : '1';
+            prevBtn.style.pointerEvents = this.currentSlide === 0 ? 'none' : 'auto';
+        }
+        
+        if (nextBtn) {
+            const maxSlide = this.totalSlides - this.cardsPerView;
+            nextBtn.style.opacity = this.currentSlide >= maxSlide ? '0.5' : '1';
+            nextBtn.style.pointerEvents = this.currentSlide >= maxSlide ? 'none' : 'auto';
+        }
+    }
+
+    startAutoPlay() {
+        this.stopAutoPlay(); // Clear any existing interval
+        this.autoPlayInterval = setInterval(() => {
+            const maxSlide = this.totalSlides - this.cardsPerView;
+            if (this.currentSlide >= maxSlide) {
+                this.currentSlide = 0; // Reset to beginning
+            } else {
+                this.currentSlide++;
+            }
+            
+            const cardsContainer = document.querySelector('.marketing-cards');
+            if (cardsContainer) {
+                const translateX = -(this.currentSlide * (100 / this.cardsPerView));
+                cardsContainer.style.transform = `translateX(${translateX}%)`;
+                this.updateCarouselButtons();
+            }
+        }, 3000); // Change slide every 3 seconds
+    }
+
+    stopAutoPlay() {
+        if (this.autoPlayInterval) {
+            clearInterval(this.autoPlayInterval);
+            this.autoPlayInterval = null;
+        }
+    }
+
+    addCarouselHoverEvents() {
+        const carousel = document.querySelector('.marketing-carousel');
+        if (!carousel) return;
+
+        carousel.addEventListener('mouseenter', () => {
+            this.stopAutoPlay();
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            this.startAutoPlay();
+        });
+    }
 }
 
 // Global functions for onclick handlers
 function navigateToSearch(serviceType) {
     if (window.app) {
         window.app.navigateToSearch(serviceType);
+    }
+}
+
+function moveCarousel(direction) {
+    if (window.app) {
+        window.app.moveCarousel(direction);
     }
 }
 
